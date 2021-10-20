@@ -24,13 +24,15 @@ User.init(
          allowNull: false,
       },
       // Define an Email column
-      type: DataTypes.STRING,
-      allowNull: false,
-      // There cannot be any duplicate email values in this table
-      unique: true,
-      // If allowNull is set to false, we can run our data through validators before creating the table data
-      validate: {
-         isEmail: true,
+      email: {
+         type: DataTypes.STRING,
+         allowNull: false,
+         // There cannot be any duplicate email values in this table
+         unique: true,
+         // If allowNull is set to false, we can run our data through validators before creating the table data
+         validate: {
+            isEmail: true,
+         },
       },
       // Define a password column
       password: {
