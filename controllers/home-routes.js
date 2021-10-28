@@ -3,7 +3,6 @@ const sequelize = require('../config/connection');
 const { Post, User, Comment } = require('../models');
 
 router.get('/', (req, res) => {
-   console.log(req.session);
    Post.findAll({
       attributes: [
          'id',
@@ -31,7 +30,6 @@ router.get('/', (req, res) => {
          // serialize the entire array in order receive all posts
          const posts = dbPostData.map((post) => post.get({ plain: true }));
 
-         console.log(posts, { posts });
          res.render('homepage', { posts });
       })
       .catch((err) => {
