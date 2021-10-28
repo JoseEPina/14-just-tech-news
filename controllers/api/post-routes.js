@@ -101,13 +101,17 @@ router.post('/', (req, res) => {
 ! WORD 'upvote' IS A VALID PARAMETER FOR '/:id' 
 */
 router.put('/upvote', (req, res) => {
-   // Custom static method createdin models/Post.js
-   Post.upvote(req.body, { Vote })
-      .then((updatedPostData) => res.json(updatedPostData))
-      .catch((err) => {
-         console.log(err);
-         res.status(400).json(err);
-      });
+   // Make sure the session exists first before
+   if (req.session) {
+      // Custom static method createdin models/Post.js
+      // Pass session id along with all destructure properties on req.body
+      Post.upvote({ ...req.body, user_id: req.session.user_id }, { Vote, Comment, User })
+         .then((updateVoteData) => res.json(updateVoteData))
+         .catch((err) => {
+            console.log(err);
+            res.status(500).json(err);
+         });
+   }
 });
 
 // PUT - to update the Post's title

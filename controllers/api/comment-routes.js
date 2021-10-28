@@ -17,16 +17,20 @@ router.get('/', (req, res) => {
 
 // POST routes for posting comments
 router.post('/', (req, res) => {
-   Comment.create({
-      comment_text: req.body.comment_text,
-      user_id: req.body.user_id,
-      post_id: req.body.post_id,
-   })
-      .then((dbCommentData) => res.json(dbCommentData))
-      .catch((err) => {
-         console.log(err);
-         res.status(400).json(err);
-      });
+   // Check the session data
+   if (req.session) {
+      Comment.create({
+         comment_text: req.body.comment_text,
+         post_id: req.body.post_id,
+         // use the id from the session
+         user_id: req.body.user_id,
+      })
+         .then((dbCommentData) => res.json(dbCommentData))
+         .catch((err) => {
+            console.log(err);
+            res.status(400).json(err);
+         });
+   }
 });
 
 // DELETE route for deleting comments
