@@ -14,16 +14,22 @@
    </div>
 </article>
 
-<form class='comment-form'>
-   <div>
-      <textarea name='comment-body'></textarea>
-   </div>
-
-   <div>
-      <button type='submit'>add comment</button>
-      <button type='button' class='upvote-btn'>upvote</button>
-   </div>
-</form>
+{{#if loggedIn}}
+   <form class='comment-form'>
+      <div>
+         <textarea name='comment-body'></textarea>
+      </div>
+      {{! Image field }}
+      <div>
+         <label for='image-location'>File Location</label>
+         <input type='file' accept='image/*' name='image-location' />
+      </div>
+      <div>
+         <button type='submit'>add comment</button>
+         <button type='button' class='upvote-btn'>upvote</button>
+      </div>
+   </form>
+{{/if}}
 
 <div class='comments'>
    {{#each post.comments}}
@@ -40,5 +46,7 @@
    {{/each}}
 </div>
 
-<script src="/javascript/comment.js"></script>
-<script src="/javascript/upvote.js"></script>
+{{#if loggedIn}}
+   <script src='/javascript/comment.js'></script>
+   <script src='/javascript/upvote.js'></script>
+{{/if}}
