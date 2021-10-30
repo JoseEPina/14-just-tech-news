@@ -4,6 +4,7 @@ const routes = require('./controllers');
 const sequelize = require('./config/connection');
 const session = require('express-session');
 const fileUpload = require('express-fileupload');
+const helpers = require('./utils/helpers');
 
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
@@ -17,8 +18,8 @@ const sess = {
    }),
 };
 
-const exphbs = require('express-handlebars'); // to set up handlebars as the
-const hbs = exphbs.create({}); // app's template engine of choice
+const exphbs = require('express-handlebars'); // to set up handlebars as the app's template engine of choice
+const hbs = exphbs.create({ helpers }); // pass the helpers to the express handlebars method
 
 const app = express();
 const PORT = process.env.PORT || 3001;
