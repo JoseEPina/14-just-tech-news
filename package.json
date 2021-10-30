@@ -4,12 +4,7 @@
    "description": "",
    "main": "server.js",
    "scripts": {
-<<<<<<< HEAD
-      "test": "jest",
-      "start": "node server.js"
-=======
       "test": "jest"
->>>>>>> feature/dashboard
    },
    "repository": {
       "type": "git",
