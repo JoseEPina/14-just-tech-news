@@ -17,8 +17,9 @@ async function signupFormHandler(event) {
       });
       // Check the response status message
       if (response.ok) {
-         console.log('success');
+         window.alert('Success! You may log in now.');
       } else {
+         console.log('failure');
          alert(response.statusText);
       }
    }
