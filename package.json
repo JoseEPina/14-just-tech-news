@@ -1,22 +1,23 @@
 {
-   "name": "just-tech-news",
+   "name": "14-just-tech-news",
    "version": "1.0.0",
    "description": "",
    "main": "server.js",
    "scripts": {
-      "test": "jest"
+      "test": "jest",
+      "start": "node server.js"
    },
    "repository": {
       "type": "git",
-      "url": "git+https://github.com/JoseEPina/just-tech-news.git"
+      "url": "git+https://github.com/JoseEPina/14-just-tech-news.git"
    },
    "keywords": [],
    "author": "",
    "license": "ISC",
    "bugs": {
-      "url": "https://github.com/JoseEPina/just-tech-news/issues"
+      "url": "https://github.com/JoseEPina/14-just-tech-news/issues"
    },
-   "homepage": "https://github.com/JoseEPina/just-tech-news#readme",
+   "homepage": "https://github.com/JoseEPina/14-just-tech-news#readme",
    "dependencies": {
       "bcrypt": "^5.0.1",
       "connect-session-sequelize": "^7.1.2",
